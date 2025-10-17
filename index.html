@@ -135,3 +135,195 @@
 </script>
 </body>
 </html>
+20 min
+
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>MegaSklep — Promocje (materiał szkoleniowy)</title>
+<style>
+  :root{
+    --bg:#f5f7fb; --card:#fff; --muted:#6b7280; --accent:#0073e6; --danger:#d9534f;
+  }
+  body{font-family:Inter, "Segoe UI", Roboto, Arial; background:var(--bg); margin:18px; color:#111}
+  .wrap{max-width:1100px;margin:0 auto}
+  header{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+  .brand{display:flex;gap:12px;align-items:center}
+  .logo{width:56px;height:56px;background:linear-gradient(135deg,#dbeafe,#c7f9f5);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;color:#0b2040}
+  .search{flex:1;margin:0 18px}
+  .search input{width:100%;padding:10px 12px;border-radius:8px;border:1px solid #e6e9ee}
+  .user{font-size:14px;color:var(--muted)}
+  .main{display:flex;gap:18px}
+  .sidebar{width:260px}
+  .card{background:var(--card);border-radius:10px;padding:14px;border:1px solid #e7e9ef;box-shadow:0 6px 18px rgba(16,24,40,0.04)}
+  .product{flex:1;padding:18px}
+  .product-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .item{display:flex;gap:14px;padding:12px;border-radius:10px;border:1px solid #eef2f6;background:#fff}
+  .thumb{width:140px;height:110px;background:#f4f6fb;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#8a94a6}
+  .info h3{margin:0;font-size:16px}
+  .price{font-size:18px;color:#0b8a2e;font-weight:800}
+  .oldprice{text-decoration:line-through;color:#a0a4aa;margin-left:8px;font-size:14px}
+  .buy{margin-top:8px}
+  .btn{padding:8px 12px;border-radius:8px;border:1px solid rgba(2,6,23,0.06);background:#fff;cursor:not-allowed}
+  .btn.primary{background:var(--accent);color:#fff;border-color:transparent;cursor:not-allowed}
+  .ribbon{background:#ffdcbd;color:#6b3b00;padding:6px 8px;border-radius:6px;font-weight:700;display:inline-block}
+  .footer{margin-top:14px;color:var(--muted);font-size:13px}
+  .actions{margin:16px 0;display:flex;gap:10px}
+  button.action{padding:10px 14px;border-radius:8px;border:1px solid #e6e7ea;background:#fff;cursor:pointer;font-weight:700}
+  button.primary{background:var(--accent);color:#fff;border-color:transparent}
+  .flag{background:linear-gradient(90deg, rgba(217,83,79,0.06), rgba(217,83,79,0.02));padding:4px 6px;border-radius:6px;color:var(--danger);font-weight:700}
+  .highlight{box-shadow:0 0 0 4px rgba(217,83,79,0.12);border-radius:6px}
+  .training{display:block;margin-top:10px;padding:10px;background:#fff3bf;border:1px solid #ffe8a3;color:#6b4b00;border-radius:6px;font-weight:700}
+  @media print{ .actions, header, .training {display:none} }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">MS</div>
+        <div>
+          <div style="font-weight:800;font-size:18px">MegaSklep</div>
+          <div style="font-size:13px;color:var(--muted)">Twoje super promocje (materiał szkoleniowy)</div>
+        </div>
+      </div>
+
+      <div class="search">
+        <input type="text" placeholder="Szukaj produktów..." aria-label="search"/>
+      </div>
+
+      <div class="user">Koszyk • Moje konto</div>
+    </header>
+
+    <div class="actions">
+      <button class="action" id="showFlags">Pokaż czerwone flagi</button>
+      <button class="action" id="reset">Reset</button>
+      <button class="action primary" id="print">Drukuj / Pełny ekran</button>
+    </div>
+
+    <div class="main">
+      <aside class="sidebar">
+        <div class="card">
+          <h4>Filtry</h4>
+          <p style="color:var(--muted);font-size:14px">Kategoria, cena, marka...</p>
+          <hr style="margin:8px 0;border:none;border-top:1px solid #f0f2f5"/>
+          <p style="font-size:13px;color:var(--muted)">Domena sprzedawcy:</p>
+          <p id="sellerDomain">http://megasklep-promocje.net</p>
+          <p style="font-size:13px;color:var(--muted)">Metody płatności:</p>
+          <ul style="margin:6px 0 0 16px;color:var(--muted)">
+            <li>Karta płatnicza (tylko)</li>
+          </ul>
+          <div class="footer">Brak szczegółów firmy. Brak regulaminu.</div>
+        </div>
+      </aside>
+
+      <section class="product">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div style="font-size:13px;color:var(--muted)">Mega promocja</div>
+            <h1 style="margin:6px 0 0;">Markowe buty sportowe — WYPRZEDAŻ 80%</h1>
+            <div style="margin-top:6px"><span class="ribbon">-80%</span></div>
+          </div>
+          <div style="text-align:right;color:var(--muted)">
+            <div>Ocena sprzedawcy: ★★★★☆ (brak recenzji)</div>
+            <div style="margin-top:6px">Lokalizacja: Polska</div>
+          </div>
+        </div>
+
+        <div style="margin-top:14px" class="card product-grid">
+          <div class="item" id="item1">
+            <div class="thumb">Zdjęcie produktu</div>
+            <div class="info">
+              <h3>Nike Air Sprint 2024</h3>
+              <div style="margin-top:6px">
+                <span class="price" id="price1">199,00 zł</span>
+                <span class="oldprice">999,00 zł</span>
+              </div>
+              <div style="margin-top:8px;color:var(--muted)">Dostępność: 5 sztuk</div>
+              <div class="buy">
+                <button class="btn primary" id="buy1">Kup teraz</button>
+                <button class="btn" id="details1">Szczegóły</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="item" id="item2">
+            <div class="thumb">Zdjęcie produktu</div>
+            <div class="info">
+              <h3>Adidass Pro Runner</h3>
+              <div style="margin-top:6px">
+                <span class="price" id="price2">159,00 zł</span>
+                <span class="oldprice">899,00 zł</span>
+              </div>
+              <div style="margin-top:8px;color:var(--muted)">Dostępność: 3 sztuki</div>
+              <div class="buy">
+                <button class="btn primary" id="buy2">Kup teraz</button>
+                <button class="btn" id="details2">Szczegóły</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px" class="card">
+          <h4>Informacje o płatności</h4>
+          <p style="color:var(--muted)">Akceptujemy wyłącznie płatności kartą (brak przelewu, brak BLIK). Brak numeru NIP sprzedawcy w stopce.</p>
+          <p style="color:#b94a48;font-weight:700">UWAGA: To jest materiał szkoleniowy — nie dokonuj transakcji.</p>
+        </div>
+
+        <div class="training">MATERIAŁ SZKOLENIOWY — ĆWICZENIE: projekt sklepu zawiera elementy, które powinny wzbudzić wątpliwości. Zidentyfikuj je i napisz akcję, którą byś podjął(a).</div>
+      </section>
+    </div>
+  </div>
+
+<script>
+  // lista elementów do podświetlenia (czerwone flagi)
+  const flags = [
+    {sel: '#sellerDomain', reason: 'Podejrzana domena sprzedawcy (megasklep-promocje.net zamiast oficjalnej domeny).'},
+    {sel: '#price1', reason: 'Cena „199 zł” przy regularnej 999 zł — nierealistycznie duża zniżka.'},
+    {sel: '#price2', reason: 'Druga cena także bardzo niska — możliwe oszustwo lub błąd.'},
+    {sel: '.footer', reason: 'Brak danych firmy, regulaminu i numeru NIP / adresu.'},
+    {sel: '.thumb', reason: 'Obrazki produktów są generyczne — brak oryginalnych zdjęć od producenta.'},
+    {sel: '.card p', reason: 'Płatność tylko kartą — brak alternatywnych, bezpiecznych form (BLIK, przelew).'},
+    {sel: '.ribbon', reason: 'Presja sprzedażowa („-80%”, ograniczone sztuki) stymuluje pochopne decyzje.'}
+  ];
+
+  function highlightFlags(){
+    flags.forEach(f => {
+      document.querySelectorAll(f.sel).forEach(node => {
+        node.classList.add('highlight');
+        // tooltip (only once)
+        if(!node.parentElement.querySelector('.flag-reason')){
+          const tip = document.createElement('div');
+          tip.className = 'flag-reason';
+          tip.style.color = '#a94442';
+          tip.style.fontSize = '13px';
+          tip.style.marginTop = '6px';
+          tip.textContent = '⚠ ' + f.reason;
+          node.parentElement.appendChild(tip);
+        }
+      });
+    });
+  }
+
+  function resetFlags(){
+    document.querySelectorAll('.highlight').forEach(el => el.classList.remove('highlight'));
+    document.querySelectorAll('.flag-reason').forEach(n => n.remove());
+  }
+
+  document.getElementById('showFlags').addEventListener('click', highlightFlags);
+  document.getElementById('reset').addEventListener('click', resetFlags);
+  document.getElementById('print').addEventListener('click', () => window.print());
+
+  // make purchase buttons inert and safe
+  document.querySelectorAll('.btn.primary, .btn').forEach(b => {
+    b.addEventListener('click', (e) => {
+      e.preventDefault();
+      alert('To jest materiał szkoleniowy — nie dokonuj transakcji na tej stronie.');
+    });
+  });
+</script>
+</body>
+</html>
+
